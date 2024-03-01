@@ -11,8 +11,6 @@ const { createReadStream } = require('fs');
 const HTML_CONTENT_TYPE = 'text/html'
 
 
-
-
 router.get('/', (req, res) => {
     // res.send('Index - Aqui va mi pagina de inicio');
     res.writeHead(200, { 'Content-Type': HTML_CONTENT_TYPE });

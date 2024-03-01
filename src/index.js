@@ -41,14 +41,15 @@ app.use(session({
 
 //Rotes
 app.use(require('./routes/index'));
-app.use(require('./routes/productos'));
 app.use(require('./routes/menu'));
+app.use(require('./routes/tesistas'));
+
 
 //staticFile
 
 //serverActivos
 
 app.listen(app.get('port'),()=>{
-    console.log('servidor TUCUMAN en el puerto: ',app.get('port'));
+    console.log('servidor DACTICFCE: ',app.get('port'));
 });
 
