@@ -13,6 +13,10 @@ router.post('/crear', async (req, res) => {
   await tesistasController.crear(req, res);
 });
 
+router.get('/borrar/:id', (req,res)=> {
+  tesistasController.borrar(req,res);
+})
+
 
 
 module.exports = router;

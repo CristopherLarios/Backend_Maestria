@@ -57,3 +57,17 @@ module.exports.crear = async (req, res) => {
         });
     }
 };
+
+module.exports.borrar = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const Tesista = await tesistas.findByIdAndDelete(id);
+        if (!Tesista) {
+            return res.status(404).json({ message: 'Tesista no encontrado' });
+        }
+        res.redirect('/verTesistas');
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).json({ message: 'Error al eliminar el Tesista' });
+    }
+};
