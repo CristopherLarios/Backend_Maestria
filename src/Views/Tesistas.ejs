@@ -20,30 +20,7 @@
 <body>
 
     <div class="container">
-
-
         <h4>Tesitas</h4>
-
-        <!-- <form action="" method="POST">
-                <div>
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" class="form-control" required>
-                </div>
-                <div>
-                    <label for="precio" class="form-label">Precio</label>
-                    <input id="precio" name="precio" type="number" class="form-control" required>
-                </div>
-                <div>
-                    <label for="stock" class="form-label">Stock</label>
-                    <input id="stock" name="stock" type="number" class="form-control" required>
-                </div>
-                <div>
-                    <label for="categoria" class="form-label">categoria</label>
-                    <input id="categoria" name="categoria" type="text" class="form-control" required>
-                </div>
-                <button type="submit" class="w-100 btn btn-guardar btn-lg"> <i class="bi bi-save"></i> Registrar
-                    Producto </button>
-            </form> -->
 
         <table id="TableTesistas" class="uk-table uk-table-hover uk-table-striped" style="width:100%">
 
@@ -99,10 +76,10 @@
                         </td>
                         <td>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" 
-                                <%= tesista.Estado ? 'checked' : '' %> >
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="flexSwitchCheckChecked" <%=tesista.Estado ? 'checked' : '' %> >
                             </div>
-                            
+
                         </td>
                         <td>
                             <a type="" class="">Editar</a>
@@ -113,6 +90,105 @@
             </tbody>
         </table>
 
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Registrar
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <form action="/crear" method="POST">
+
+                        <div>
+                            <label for="Primer_Nombre" class="form-label">Primer_Nombre</label>
+                            <input id="Primer_Nombre" name="Primer_Nombre" type="text" class="form-control" required>
+                        </div>
+
+                        <div>
+                            <label for="Segundo_Nombre" class="form-label">Segundo_Nombre</label>
+                            <input id="Segundo_Nombre" name="Segundo_Nombre" type="text" class="form-control" required>
+                        </div>
+
+                        <div>
+                            <label for="Primer_Apellido" class="form-label">Primer_Apellido</label>
+                            <input id="Primer_Apellido" name="Primer_Apellido" type="text" class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="Segundo_Apellido" class="form-label">Segundo_Apellido</label>
+                            <input id="Segundo_Apellido" name="Segundo_Apellido" type="text" class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="Numero_Carnet" class="form-label">Numero_Carnet</label>
+                            <input id="Numero_Carnet" name="Numero_Carnet" type="text" class="form-control" required>
+                        </div>
+
+                        <br>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <span class="input-group-text" id="basic-addon2">@DACTIC.uni.edu.ni</span>
+                        </div>
+
+                        <br>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Sexo">
+                            <label class="form-check-label" for="Sexo">
+                                M
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Sexo">
+                            <label class="form-check-label" for="Sexo">
+                                F
+                            </label>
+                        </div>
+
+                        <select class="form-select" aria-label="Default select example" name="Sede">
+                            <option selected>SEDE</option>
+                            <option value="1">CENTRAL</option>
+                            <option value="2">JUIGALPA</option>
+                            <option value="3">ESTELI</option>
+                        </select>
+
+                        <br>
+
+                        <select class="form-select" aria-label="Default select example" name="Programa">
+                            <option selected>Programa</option>
+                            <option value="1">Ing.Sistemas</option>
+                            <option value="2">Ing.Computacion</option>
+                            <option value="3">Ing.Electronica</option>
+                            <option value="3">Ing.Telecomunicaciones</option>
+                        </select>
+
+                        <br>
+
+                        <button type="submit" class="btn btn-primary btn-lg"> <i class="bi bi-save"></i> Registrar
+                            Producto </button>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>

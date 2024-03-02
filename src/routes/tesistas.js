@@ -9,6 +9,10 @@ router.get('/verTesistas', async (req, res) => {
   await tesistasController.mostrar(req, res);
 });
 
+router.post('/crear', async (req, res) => {
+  await tesistasController.crear(req, res);
+});
+
 
 
 module.exports = router;
