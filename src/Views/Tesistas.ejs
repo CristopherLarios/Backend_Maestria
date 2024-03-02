@@ -82,7 +82,7 @@
 
                         </td>
                         <td>
-                            <a type="" class="">Editar</a>
+                            <a type="" class="btnEditar">Editar</a>
                             <a href="/borrar/<%=tesista._id %>" class="">Eliminar</a>
                         </td>
                     </tr>
@@ -97,8 +97,8 @@
         Registrar
     </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal Nuevo -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalcreartesista" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -140,26 +140,26 @@
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Recipient's username"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                aria-label="Recipient's username" aria-describedby="basic-addon2" id="Correo" name="Correo">
                             <span class="input-group-text" id="basic-addon2">@DACTIC.uni.edu.ni</span>
                         </div>
 
                         <br>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Sexo">
+                            <input class="form-check-input" type="radio" name="Sexo" id="Sexo" value="M">
                             <label class="form-check-label" for="Sexo">
                                 M
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Sexo">
+                            <input class="form-check-input" type="radio" name="Sexo" id="Sexo" value="F">
                             <label class="form-check-label" for="Sexo">
                                 F
                             </label>
                         </div>
 
-                        <select class="form-select" aria-label="Default select example" name="Sede">
+                        <select class="form-select" aria-label="Default select example" name="Sede" id="Sede">
                             <option selected>SEDE</option>
                             <option value="1">CENTRAL</option>
                             <option value="2">JUIGALPA</option>
@@ -168,12 +168,12 @@
 
                         <br>
 
-                        <select class="form-select" aria-label="Default select example" name="Programa">
+                        <select class="form-select" aria-label="Default select example" name="Programa" id="Programa">
                             <option selected>Programa</option>
                             <option value="1">Ing.Sistemas</option>
                             <option value="2">Ing.Computacion</option>
                             <option value="3">Ing.Electronica</option>
-                            <option value="3">Ing.Telecomunicaciones</option>
+                            <option value="4">Ing.Telecomunicaciones</option>
                         </select>
 
                         <br>
@@ -190,6 +190,105 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Modal editar -->
+    <div id="modalTesistaUpdate" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modaleditartesista" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <form action="/editar" method="POST">
+
+                        <input name="id_editar" id="id_editar" type="text"  hidden>
+                        
+                        <div>
+                            <label for="Primer_Nombre_editar" class="form-label">Primer_Nombre</label>
+                            <input id="Primer_Nombre_editar" name="Primer_Nombre_editar" type="text" class="form-control" required>
+                        </div>
+
+                        <div>
+                            <label for="Segundo_Nombre_editar" class="form-label">Segundo_Nombre</label>
+                            <input id="Segundo_Nombre_editar" name="Segundo_Nombre_editar" type="text" class="form-control" required>
+                        </div>
+
+                        <div>
+                            <label for="Primer_Apellido_editar" class="form-label">Primer_Apellido</label>
+                            <input id="Primer_Apellido_editar" name="Primer_Apellido_editar" type="text" class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="Segundo_Apellido_editar" class="form-label">Segundo_Apellido</label>
+                            <input id="Segundo_Apellido_editar" name="Segundo_Apellido_editar" type="text" class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="Numero_Carnet_editar" class="form-label">Numero_Carnet</label>
+                            <input id="Numero_Carnet_editar" name="Numero_Carnet_editar" type="text" class="form-control" required>
+                        </div>
+
+                        <br>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Recipient's username"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2" id="Correo_editar">
+                            <span class="input-group-text" id="basic-addon2">@DACTIC.uni.edu.ni</span>
+                        </div>
+
+                        <br>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Sexo_editar">
+                            <label class="form-check-label" for="Sexo_editar">
+                                M
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Sexo_editar">
+                            <label class="form-check-label" for="Sexo_editar">
+                                F
+                            </label>
+                        </div>
+
+                        <select class="form-select" aria-label="Default select example" id="Sede_editar">
+                            <option selected>SEDE</option>
+                            <option value="1">CENTRAL</option>
+                            <option value="2">JUIGALPA</option>
+                            <option value="3">ESTELI</option>
+                        </select>
+
+                        <br>
+
+                        <select class="form-select" aria-label="Default select example" id="Programa_editar">
+                            <option selected>Programa</option>
+                            <option value="1">Ing.Sistemas</option>
+                            <option value="2">Ing.Computacion</option>
+                            <option value="3">Ing.Electronica</option>
+                            <option value="3">Ing.Telecomunicaciones</option>
+                        </select>
+
+                        <br>
+
+                        <button type="submit" class="btn btn-primary btn-lg"> <i class="bi bi-save"></i> Editar
+                            Producto </button>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
