@@ -4,7 +4,7 @@ const path = require('path');// modulo Patch
 
 const app = express();
 
-const filepatch = path.resolve('View', 'index.html');
+const filepatch = path.resolve('Views', 'index.html');
 
 const { createReadStream } = require('fs');
 
@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
     //Leemos el fichero about.html
     createReadStream(filepatch).pipe(res);
 });
+
 
 
 

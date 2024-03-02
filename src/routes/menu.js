@@ -2,7 +2,7 @@ const express = require('express');
 const router= express.Router();
 const path = require('path');// modulo Patch
 
-const filepatch = path.resolve('View', 'Menu.html');
+const filepatch = path.resolve('Views', 'Menu.html');
 
 const { createReadStream } = require('fs');
 

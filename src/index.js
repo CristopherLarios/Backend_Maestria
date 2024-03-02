@@ -10,20 +10,20 @@ const session = require('express-session');//modulo de manejo de sesiones
 
 //Inicializaciones
 const app = express();
-require('./View/database');
+require('./Views/database');
 
 
 
 //setings 
 app.set ('port',3000);//setamos el puerto de comunicacion
-app.set('View',path.join(__dirname,'View')); //concatena los directorios View  y el principal 
-
+app.set('Views',path.join(__dirname,'Views')); //concatena los directorios View  y el principal 
+app.set('view engine', 'ejs');
 
 //midelware
 app.use(express.urlencoded({extended:true})); //Permite las capturas de datos sin imagenes (por formularios)
 
 // función middleware para servir archivos estáticos
-app.use(express.static(__dirname+'/View/public'));
+app.use(express.static(__dirname+'/Views/public'));
 
 
 app.use(methodOverride('_method'))//habilitamos el delete y put ya que el anterior solo es get y post

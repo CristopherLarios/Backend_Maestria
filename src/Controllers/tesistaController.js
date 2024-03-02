@@ -11,7 +11,7 @@ module.exports.mostrar = async (req, res) => {
         const Tesistas = await tesistas.find({});
         // console.log(Tesistas);
         // res.json(Tesistas);
-        // res.render('tesistas', { Tesistas: Tesistas });
+        res.render('tesistas', { Tesistas: Tesistas });
     } catch (error) {
         console.error('Error mostrando los Tesistas:', error);
         res.status(500).json({
