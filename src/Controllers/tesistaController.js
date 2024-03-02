@@ -9,7 +9,7 @@ const tesistas = require('../models/tesistas');
 module.exports.mostrar = async (req, res) => {
     try {
         const Tesistas = await tesistas.find({});
-        // console.log(Tesistas);
+         console.log(Tesistas);
         // res.json(Tesistas);
         res.render('tesistas', { Tesistas: Tesistas });
     } catch (error) {
