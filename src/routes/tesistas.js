@@ -17,7 +17,7 @@ router.get('/borrar/:id', (req,res)=> {
   tesistasController.borrar(req,res);
 })
 
-router.put('/editar/:id', (req,res)=> {
+router.post('/editar', (req,res)=> {
   tesistasController.editar(req,res);
 })
 

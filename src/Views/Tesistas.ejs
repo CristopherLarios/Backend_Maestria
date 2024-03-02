@@ -44,36 +44,16 @@
             <tbody>
                 <% Tesistas.forEach((tesista)=> { %>
                     <tr>
-                        <td style="display: none;">
-                            <%=tesista._id %>
-                        </td>
-                        <td>
-                            <%=tesista.Primer_Nombre %>
-                        </td>
-                        <td>
-                            <%=tesista.Segundo_Nombre %>
-                        </td>
-                        <td>
-                            <%=tesista.Primer_Apellido %>
-                        </td>
-                        <td>
-                            <%=tesista.Segundo_Apellido %>
-                        </td>
-                        <td>
-                            <%=tesista.Numero_Carnet %>
-                        </td>
-                        <td>
-                            <%=tesista.Correo %>
-                        </td>
-                        <td>
-                            <%=tesista.Sexo %>
-                        </td>
-                        <td>
-                            <%=tesista.Sede %>
-                        </td>
-                        <td>
-                            <%=tesista.Programa %>
-                        </td>
+                        <td style="display: none;"><%=tesista._id%></td>
+                        <td><%=tesista.Primer_Nombre %></td>
+                        <td><%=tesista.Segundo_Nombre %></td>
+                        <td><%=tesista.Primer_Apellido %></td>
+                        <td><%=tesista.Segundo_Apellido %></td>
+                        <td><%=tesista.Numero_Carnet %></td>
+                        <td><%=tesista.Correo %></td>
+                        <td><%=tesista.Sexo %></td>
+                        <td><%=tesista.Sede %></td>
+                        <td><%=tesista.Programa %></td>
                         <td>
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch"
@@ -106,7 +86,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+
                     <form action="/crear" method="POST">
 
                         <div>
@@ -140,7 +120,8 @@
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Recipient's username"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2" id="Correo" name="Correo">
+                                aria-label="Recipient's username" aria-describedby="basic-addon2" id="Correo"
+                                name="Correo">
                             <span class="input-group-text" id="basic-addon2">@DACTIC.uni.edu.ni</span>
                         </div>
 
@@ -193,7 +174,8 @@
 
 
     <!-- Modal editar -->
-    <div id="modalTesistaUpdate" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modaleditartesista" aria-hidden="true">
+    <div id="modalTesistaUpdate" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modaleditartesista"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -201,62 +183,65 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+
                     <form action="/editar" method="POST">
 
-                        <input name="id_editar" id="id_editar" type="text"  hidden>
-                        
+                        <input name="id_editar" id="id_editar" type="text" hidden>
+
                         <div>
                             <label for="Primer_Nombre_editar" class="form-label">Primer_Nombre</label>
-                            <input id="Primer_Nombre_editar" name="Primer_Nombre_editar" type="text" class="form-control" required>
+                            <input id="Primer_Nombre_editar" name="Primer_Nombre_editar" type="text"
+                                class="form-control" required>
                         </div>
 
                         <div>
                             <label for="Segundo_Nombre_editar" class="form-label">Segundo_Nombre</label>
-                            <input id="Segundo_Nombre_editar" name="Segundo_Nombre_editar" type="text" class="form-control" required>
+                            <input id="Segundo_Nombre_editar" name="Segundo_Nombre_editar" type="text"
+                                class="form-control" required>
                         </div>
 
                         <div>
                             <label for="Primer_Apellido_editar" class="form-label">Primer_Apellido</label>
-                            <input id="Primer_Apellido_editar" name="Primer_Apellido_editar" type="text" class="form-control"
-                                required>
+                            <input id="Primer_Apellido_editar" name="Primer_Apellido_editar" type="text"
+                                class="form-control" required>
                         </div>
 
                         <div>
                             <label for="Segundo_Apellido_editar" class="form-label">Segundo_Apellido</label>
-                            <input id="Segundo_Apellido_editar" name="Segundo_Apellido_editar" type="text" class="form-control"
-                                required>
+                            <input id="Segundo_Apellido_editar" name="Segundo_Apellido_editar" type="text"
+                                class="form-control" required>
                         </div>
 
                         <div>
                             <label for="Numero_Carnet_editar" class="form-label">Numero_Carnet</label>
-                            <input id="Numero_Carnet_editar" name="Numero_Carnet_editar" type="text" class="form-control" required>
+                            <input id="Numero_Carnet_editar" name="Numero_Carnet_editar" type="text"
+                                class="form-control" required>
                         </div>
 
                         <br>
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Recipient's username"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2" id="Correo_editar">
+                                aria-label="Recipient's username" aria-describedby="basic-addon2" id="Correo_editar" name="Correo_editar">
                             <span class="input-group-text" id="basic-addon2">@DACTIC.uni.edu.ni</span>
                         </div>
 
                         <br>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Sexo_editar">
+                            <input class="form-check-input" type="radio" name="Sexo_editar" id="Sexo_editar" value="M">
                             <label class="form-check-label" for="Sexo_editar">
                                 M
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Sexo_editar">
+                            <input class="form-check-input" type="radio" name="Sexo_editar" id="Sexo_editar" value="F">
                             <label class="form-check-label" for="Sexo_editar">
                                 F
                             </label>
                         </div>
 
-                        <select class="form-select" aria-label="Default select example" id="Sede_editar">
+                        <select class="form-select" aria-label="Default select example" id="Sede_editar" name="Sede_editar">
                             <option selected>SEDE</option>
                             <option value="1">CENTRAL</option>
                             <option value="2">JUIGALPA</option>
@@ -265,7 +250,7 @@
 
                         <br>
 
-                        <select class="form-select" aria-label="Default select example" id="Programa_editar">
+                        <select class="form-select" aria-label="Default select example" id="Programa_editar" name="Programa_editar">
                             <option selected>Programa</option>
                             <option value="1">Ing.Sistemas</option>
                             <option value="2">Ing.Computacion</option>

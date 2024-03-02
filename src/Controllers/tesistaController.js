@@ -31,6 +31,8 @@ module.exports.crear = async (req, res) => {
 
     try {
 
+        console.log(req.body)
+
         let sedeNombre;
         let programa;
         switch (req.body.Sede) {
@@ -47,7 +49,6 @@ module.exports.crear = async (req, res) => {
                 sedeNombre = 'Sede Desconocida';
                 break;
         }
-
         switch (req.body.Programa) {
             case '1':
                 programa = 'Ing.Sistemas';
@@ -97,6 +98,7 @@ module.exports.crear = async (req, res) => {
 module.exports.borrar = async (req, res) => {
     const id = req.params.id;
     try {
+        console.log(req.params)
         const Tesista = await tesistas.findByIdAndDelete(id);
         if (!Tesista) {
             return res.status(404).json({ message: 'Tesista no encontrado' });
@@ -109,25 +111,64 @@ module.exports.borrar = async (req, res) => {
 };
 
 module.exports.editar = async (req, res) => {
-    const id = req.params.id;
 
-    const Tesistas = new tesistas({
-        Primer_Nombre: req.body.Primer_Nombre,
-        Segundo_Nombre: req.body.Segundo_Nombre,
-        Primer_Apellido: req.body.Primer_Apellido,
-        Segundo_Apellido: req.body.Segundo_Apellido,
-        Numero_Carnet: req.body.Numero_Carnet,
-        Correo: req.body.Correo,
-        Sexo: req.body.Sexo,
-        Sede: req.body.Sede,
-        Programa: req.body.Programa,
-        Estado: true
-    });
+
+
+    console.log("req", req.body)
+
+    let sedeNombre;
+    let programa;
+    switch (req.body.Sede_editar) {
+        case '1':
+            sedeNombre = 'CENTRAL';
+            break;
+        case '2':
+            sedeNombre = 'JUIGALPA';
+            break;
+        case '3':
+            sedeNombre = 'ESTELI';
+            break;
+        default:
+            sedeNombre = 'Sede Desconocida';
+            break;
+    }
+    switch (req.body.Programa_editar) {
+        case '1':
+            programa = 'Ing.Sistemas';
+            break;
+        case '2':
+            programa = 'Ing.Computacion';
+            break;
+        case '3':
+            programa = 'Ing.Electronica';
+            break;
+        case '4':
+            programa = 'Ing.Telecomunicaciones';
+            break;
+        default:
+            programa = 'Programa Desconocida';
+            break;
+    }
+
+
+    let Primer_Nombre = req.body.Primer_Nombre_editar;
+    let Segundo_Nombre = req.body.Segundo_Nombre_editar;
+    let Primer_Apellido = req.body.Primer_Apellido_editar;
+    let Segundo_Apellido = req.body.Segundo_Apellido_editar;
+    let Numero_Carnet = req.body.Numero_Carnet_editar;
+    let Correo = req.body.Correo_editar + '@DACTIC.uni.edu.ni';
+    let Sexo = req.body.Sexo_editar;
+    let Sede = sedeNombre;
+    let Programa = programa;
+    let Estado = true;
+
 
     try {
-        const Tesista = await tesistas.findByIdAndUpdate(id, Tesistas, { useFindAndModify: false });
+        const Tesista = await tesistas.findByIdAndUpdate(req.body.id_editar, { Primer_Nombre, Segundo_Nombre, Primer_Apellido, Segundo_Apellido, Primer_Apellido, Numero_Carnet, Correo, Sexo, Sede, Programa, Estado });
 
-
+        if (!Tesista) {
+            return res.status(404).json({ message: "Tesista no actualizado" });
+        }
         res.redirect('/verTesistas');
     } catch (error) {
         console.error(error.message);
